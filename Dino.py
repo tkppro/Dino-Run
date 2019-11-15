@@ -9,9 +9,9 @@ checkPoint_sound = pygame.mixer.Sound('sprites/checkPoint.wav')
 screen = pygame.display.set_mode(scr_size)
 
 class Dino():
-    def __init__(self,sizex=-1,sizey=-1, widthD=0, heightD=0):
-        self.images,self.rect = load_sprite_sheet('dino.png',5,1,sizex,sizey,-1)
-        self.images1,self.rect1 = load_sprite_sheet('dino_ducking.png',2,1,59,sizey,-1)
+    def __init__(self,sizex=-1,sizey=-1, widthD=0, heightD=0,dino='dino.png',dino_ducking='dino_ducking1.png'):
+        self.images,self.rect = load_sprite_sheet(dino,5,1,sizex,sizey,-1)
+        self.images1,self.rect1 = load_sprite_sheet(dino_ducking,2,1,59,sizey,-1)
         self.rect.bottom = int(0.98*heightD)
         self.rect.left = widthD
         self.image = self.images[0]

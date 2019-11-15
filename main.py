@@ -99,7 +99,7 @@ def gameplay():
     gameOver = False
     gameQuit = False
     playerDino = Dino(44, 47, width/5, height)
-    playerDino1 = Dino(44, 47, width/20, height)
+    playerDino1 = Dino(44, 47, width/20, height,'dino1.png','dino_ducking.png')
 
     new_ground = Ground(-1 * gamespeed)
     scb = Scoreboard()
