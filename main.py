@@ -98,8 +98,8 @@ def gameplay():
     startMenu = False
     gameOver = False
     gameQuit = False
-    playerDino = Dino(44, 47, width/5, height)
-    playerDino1 = Dino(44, 47, width/20, height,'dino1.png','dino_ducking.png')
+    playerDino = Dino(44, 47, width/5, height,'dino.png','dino_ducking1.png', 'thang')
+    playerDino1 = Dino(44, 47, width/20, height,'dino1.png','dino_ducking.png', 'eric')
 
     new_ground = Ground(-1 * gamespeed)
     scb = Scoreboard()
@@ -243,7 +243,7 @@ def gameplay():
 
             if playerDino.isDead:
                 gameOver = True
-                text = font.render('Player 2 Win!', True, black, background_col)
+                text = font.render(playerDino1.getName() + " Win!", True, black, background_col)
                 textRect = text.get_rect()
                 # set the center of the rectangular object.
                 textRect.center = (width // 2, height // 2 - 100)
@@ -252,7 +252,7 @@ def gameplay():
                     high_score = playerDino.score
             if playerDino1.isDead:
                 gameOver = True
-                text = font.render('Player 1 Win!', True, black, background_col)
+                text = font.render(playerDino.getName() + " Win!", True, black, background_col)
                 textRect = text.get_rect()
                 textRect.center = (width // 2, height // 2 - 100)
                 screen.blit(text, textRect)
