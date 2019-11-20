@@ -9,7 +9,7 @@ checkPoint_sound = pygame.mixer.Sound('sprites/checkPoint.wav')
 screen = pygame.display.set_mode(scr_size)
 
 class Dino():
-    def __init__(self,sizex=-1,sizey=-1, widthD=0, heightD=0,dino='dino.png',dino_ducking='dino_ducking1.png'):
+    def __init__(self,sizex=-1,sizey=-1, widthD=0, heightD=0,dino='dino.png',dino_ducking='dino_ducking1.png', name='default'):
         self.images,self.rect = load_sprite_sheet(dino,5,1,sizex,sizey,-1)
         self.images1,self.rect1 = load_sprite_sheet(dino_ducking,2,1,59,sizey,-1)
         self.rect.bottom = int(0.98*heightD)
@@ -24,7 +24,7 @@ class Dino():
         self.isBlinking = False
         self.movement = [0,0]
         self.jumpSpeed = 15.5
-
+        self.name = name
         self.stand_pos_width = self.rect.width
         self.duck_pos_width = self.rect1.width
 
@@ -78,3 +78,5 @@ class Dino():
 
         self.counter = (self.counter + 1)
 
+    def getName(self):
+        return self.name
