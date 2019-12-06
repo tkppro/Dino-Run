@@ -159,21 +159,21 @@ def gameplay():
                             playerDino.isDucking = False
 
                     #player 2
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_w:
-                            if playerDino1.rect.bottom == int(0.98 * height):
-                                playerDino1.isJumping = True
-                                if pygame.mixer.get_init() != None:
-                                    jump_sound.play()
-                                playerDino1.movement[1] = -1 * playerDino1.jumpSpeed
-
-                        if event.key == pygame.K_s:
-                            if not (playerDino1.isJumping and playerDino1.isDead):
-                                playerDino1.isDucking = True
-
-                    if event.type == pygame.KEYUP:
-                        if event.key == 115:
-                            playerDino1.isDucking = False
+                    # if event.type == pygame.KEYDOWN:
+                    #     if event.key == pygame.K_w:
+                    #         if playerDino1.rect.bottom == int(0.98 * height):
+                    #             playerDino1.isJumping = True
+                    #             if pygame.mixer.get_init() != None:
+                    #                 jump_sound.play()
+                    #             playerDino1.movement[1] = -1 * playerDino1.jumpSpeed
+                    #
+                    #     if event.key == pygame.K_s:
+                    #         if not (playerDino1.isJumping and playerDino1.isDead):
+                    #             playerDino1.isDucking = True
+                    #
+                    # if event.type == pygame.KEYUP:
+                    #     if event.key == 115:
+                    #         playerDino1.isDucking = False
 
 
             for c in cacti:
@@ -182,10 +182,10 @@ def gameplay():
                     playerDino.isDead = True
                     if pygame.mixer.get_init() != None:
                         die_sound.play()
-                if pygame.sprite.collide_mask(playerDino1, c):
-                    playerDino1.isDead = True
-                    if pygame.mixer.get_init() != None:
-                        die_sound.play()
+                # if pygame.sprite.collide_mask(playerDino1, c):
+                #     playerDino1.isDead = True
+                #     if pygame.mixer.get_init() != None:
+                #         die_sound.play()
 
             for p in pteras:
                 p.movement[0] = -1 * gamespeed
@@ -193,10 +193,10 @@ def gameplay():
                     playerDino.isDead = True
                     if pygame.mixer.get_init() != None:
                         die_sound.play()
-                if pygame.sprite.collide_mask(playerDino1, p):
-                    playerDino1.isDead = True
-                    if pygame.mixer.get_init() != None:
-                        die_sound.play()
+                # if pygame.sprite.collide_mask(playerDino1, p):
+                #     playerDino1.isDead = True
+                #     if pygame.mixer.get_init() != None:
+                #         die_sound.play()
             if len(cacti) < 2:
                 if len(cacti) == 0:
                     last_obstacle.empty()
@@ -217,7 +217,7 @@ def gameplay():
                 Cloud(width, random.randrange(height / 5, height / 2))
 
             playerDino.update()
-            playerDino1.update()
+            # playerDino1.update()
             cacti.update()
             pteras.update()
             clouds.update()
@@ -236,7 +236,7 @@ def gameplay():
                 cacti.draw(screen)
                 pteras.draw(screen)
                 playerDino.draw()
-                playerDino1.draw()
+                # playerDino1.draw()
 
                 pygame.display.update()
             clock.tick(FPS)
@@ -250,14 +250,14 @@ def gameplay():
                 screen.blit(text, textRect)
                 if playerDino.score > high_score:
                     high_score = playerDino.score
-            if playerDino1.isDead:
-                gameOver = True
-                text = font.render(playerDino.getName() + " Win!", True, black, background_col)
-                textRect = text.get_rect()
-                textRect.center = (width // 2, height // 2 - 100)
-                screen.blit(text, textRect)
-                if playerDino1.score > high_score:
-                    high_score = playerDino.score
+            # if playerDino1.isDead:
+            #     gameOver = True
+            #     text = font.render(playerDino.getName() + " Win!", True, black, background_col)
+            #     textRect = text.get_rect()
+            #     textRect.center = (width // 2, height // 2 - 100)
+            #     screen.blit(text, textRect)
+            #     if playerDino1.score > high_score:
+            #         high_score = playerDino.score
 
             if counter % 700 == 699:
                 new_ground.speed -= 1
