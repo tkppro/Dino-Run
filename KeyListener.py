@@ -16,17 +16,21 @@ class KeyListener():
 
         return self
 
-    def handle(self, up, down):
+    def handle(self):
         if self.prediction == 'FIVE':
-            pyautogui.press(up)
-            print('up')
-            pyautogui.keyUp(down)
-            # time.sleep(1)
+            pyautogui.press('up')
 
             # cv2.putText(crop_image, "JUMP", (0, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, 2, 2)
-        if self.prediction == 'NONE':
-            pyautogui.keyDown(down)
-            print('down')
+        if self.prediction == 'FOUR':
+            pyautogui.press('down')
             # pyautogui.press('down')
+
+        if self.prediction == 'ONE':
+            pyautogui.press('left')
+
+        if self.prediction == 'TWO':
+            pyautogui.press('right')
+
         else:
-            pyautogui.keyUp(down)
+            pyautogui.keyUp('down')
+
