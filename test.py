@@ -60,13 +60,17 @@ def main():
         frame = cv2.flip(frame, 1)
         img = normalizeFrame(frame, x0, y0)
         frame = drawDetectionArea(frame,x0,y0,width,(0,255,0))
-
+        cv2.putText(frame, "NONE = NONE, ONE = LEFT", (0, 80), font, 1.0, (0, 0, 255), 2, 1)
+        cv2.putText(frame, "TWO = RIGHT, DOWN = FOUR", (0, 120), font, 1.0,
+                    (0, 0, 255), 2, 1)
+        cv2.putText(frame, "UP = FIVE", (0, 160), font, 1.0,
+                    (0, 0, 255), 2, 1)
         finger_detect.frame = img
         prediction = handDetect(frame, finger_detect.detect(),x0,y0)
 
         # if prediction == "NONE" or prediction == "FIVE":
         key_listener.prediction = prediction
-        key_listener.handle('up', 'down')
+        key_listener.handle()
 
         video_shower.frame = frame
 
