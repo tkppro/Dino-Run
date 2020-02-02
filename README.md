@@ -1,4 +1,4 @@
-# Game Controller with finger detection
+# Game Controller with finger gesture
 Requirement:
 * Python 3+.
 * Tensorflow 1.15.
